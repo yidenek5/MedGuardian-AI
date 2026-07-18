@@ -80,8 +80,8 @@ class Medicine:
             "message": "No end date provided."
         }
 
-    if date.today() > self.end_date:
-        return {
+if date.today() > self.end_date:
+    return {
             "expired": True,
             "message": f"{self.name} treatment period ended."
         }
@@ -158,4 +158,18 @@ def remaining_days(self):
     return {
         "success": True,
         "remaining_days": max(days, 0)
+    }
+
+def get_summary(self):
+    """
+    Return medicine summary.
+    """
+
+    return {
+        "name": self.name,
+        "dosage": f"{self.dosage_amount} {self.dosage_unit}",
+        "type": self.medicine_type,
+        "quantity": f"{self.quantity} {self.quantity_unit}",
+        "meal_instruction": self.meal_instruction,
+        "notes": self.notes
     }
