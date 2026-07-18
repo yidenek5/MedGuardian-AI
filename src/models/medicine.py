@@ -74,7 +74,7 @@ class Medicine:
     # Check if medicine treatment period has ended.
     # """
 
-    if self.end_date is None:
+     if self.end_date is None:
         return {
             "expired": False,
             "message": "No end date provided."
@@ -85,7 +85,6 @@ class Medicine:
             "expired": True,
             "message": f"{self.name} treatment period ended."
         }
-
     return {
         "expired": False,
         "message": f"{self.name} treatment is still active."
@@ -141,4 +140,22 @@ def update_details(
     return {
         "success": True,
         "message": "Medicine updated successfully."
+    }
+
+def remaining_days(self):
+    """
+    Calculate remaining treatment days.
+    """
+
+    if self.end_date is None:
+        return {
+            "success": False,
+            "message": "No end date available."
+        }
+
+    days = (self.end_date - date.today()).days
+
+    return {
+        "success": True,
+        "remaining_days": max(days, 0)
     }
