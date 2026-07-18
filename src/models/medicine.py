@@ -70,9 +70,9 @@ class Medicine:
         }
     
     def is_expired(self):
-    """
-    Check if medicine treatment period has ended.
-    """
+    # """
+    # Check if medicine treatment period has ended.
+    # """
 
     if self.end_date is None:
         return {
@@ -89,4 +89,56 @@ class Medicine:
     return {
         "expired": False,
         "message": f"{self.name} treatment is still active."
+    }
+
+def update_details(
+    self,
+    name=None,
+    dosage_amount=None,
+    dosage_unit=None,
+    medicine_type=None,
+    quantity=None,
+    quantity_unit=None,
+    start_date=None,
+    end_date=None,
+    meal_instruction=None,
+    notes=None
+):
+    """
+    Update medicine information.
+    """
+
+    if name is not None:
+        self.name = name
+
+    if dosage_amount is not None:
+        self.dosage_amount = dosage_amount
+
+    if dosage_unit is not None:
+        self.dosage_unit = dosage_unit
+
+    if medicine_type is not None:
+        self.medicine_type = medicine_type
+
+    if quantity is not None:
+        self.quantity = quantity
+
+    if quantity_unit is not None:
+        self.quantity_unit = quantity_unit
+
+    if start_date is not None:
+        self.start_date = start_date
+
+    if end_date is not None:
+        self.end_date = end_date
+
+    if meal_instruction is not None:
+        self.meal_instruction = meal_instruction
+
+    if notes is not None:
+        self.notes = notes
+
+    return {
+        "success": True,
+        "message": "Medicine updated successfully."
     }
